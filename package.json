@@ -4,6 +4,7 @@
   "description": "A simple Facebook messenger bot",
   "main": "index.js",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "messenger-bot": "^2.3.0"
   },
