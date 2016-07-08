@@ -21,10 +21,16 @@ bot.on('message', (payload, reply) => {
 	bot.getProfile(payload.sender.id, (err, profile) => {
 		if (err) throw err;
 
-		reply({ text }, (err) => {
-			if (err) throw err;
-
-			console.log(`Echoed back to ${profile.first_name} ${profile.last_name}: ${text}`);
+		reply({ sender_action: mark_seen }, (err) => {
+			setTimeout(() => {
+				reply({ sender_action: typing_on }, (err) => {
+					setTimeout(() => {
+						reply({ text }, (err) => {
+							if (err) throw err;
+						});
+					}, 5000);
+				});
+			}, 2000);
 		});
 	});
 });
