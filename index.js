@@ -21,9 +21,9 @@ bot.on('message', (payload, reply) => {
 	bot.getProfile(payload.sender.id, (err, profile) => {
 		if (err) throw err;
 
-		reply({ sender_action: mark_seen }, (err) => {
+		reply({ sender_action: 'mark_seen' }, (err) => {
 			setTimeout(() => {
-				reply({ sender_action: typing_on }, (err) => {
+				reply({ sender_action: 'typing_on' }, (err) => {
 					setTimeout(() => {
 						reply({ text }, (err) => {
 							if (err) throw err;
