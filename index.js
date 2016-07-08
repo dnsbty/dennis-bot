@@ -19,14 +19,14 @@ bot.on('message', (payload, reply) => {
 	let text = payload.message.text;
 
 	bot.getProfile(payload.sender.id, (err, profile) => {
-		if (err) throw err;
+		if (err) console.error(err);
 
 		reply({ sender_action: 'mark_seen' }, (err) => {
 			setTimeout(() => {
 				reply({ sender_action: 'typing_on' }, (err) => {
 					setTimeout(() => {
 						reply({ text }, (err) => {
-							if (err) throw err;
+							if (err) console.error(err);
 						});
 					}, 5000);
 				});
